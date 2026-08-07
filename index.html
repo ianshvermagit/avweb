@@ -644,6 +644,42 @@
                 display: block;
             }
         }
+
+    .about {
+    position: relative;
+    overflow: hidden; /* Video ko section se bahar nikalne se rokega */
+}
+
+/* Background Video styling */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Overlay (Dark tint) taaki text clear dikhe */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Aap opacity/color adjust kar sakte hain */
+    z-index: 2;
+}
+
+/* Content ko video ke upar lane ke liye */
+.about-grid {
+    position: relative;
+    z-index: 3;
+}
     </style>
     <script type="application/ld+json">
 {
@@ -717,32 +753,39 @@
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="about-grid">
-            <div class="about-text reveal">
-                <h3>Engineering Digital Excellence</h3>
-                <p>At <strong>AV Web Solution</strong>, under the leadership of founder <strong>Ansh Verma</strong>, we specialize in delivering high-performance digital architectures tailored to modern enterprise standards.</p>
-                <p>Every single line of code and user interface component is engineered precisely around our client's unique operational needs. We prioritize speed, strict security protocols, search-engine optimization, and fully responsive layouts across all device form factors.</p>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="about-grid">
+        <div class="about-text reveal">
+            <h3>Engineering Digital Excellence</h3>
+            <p>At <strong>AV Web Solution</strong>, under the leadership of founder <strong>Ansh Verma</strong>, we specialize in delivering high-performance digital architectures tailored to modern enterprise standards.</p>
+            <p>Every single line of code and user interface component is engineered precisely around our client's unique operational needs. We prioritize speed, strict security protocols, search-engine optimization, and fully responsive layouts across all device form factors.</p>
+        </div>
+        <div class="stats-grid reveal">
+            <div class="glass-card stat-card">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label">Tailored Solutions</span>
             </div>
-            <div class="stats-grid reveal">
-                <div class="glass-card stat-card">
-                    <span class="stat-number" data-target="100">0</span>
-                    <span class="stat-label">Tailored Solutions</span>
-                </div>
-                <div class="glass-card stat-card">
-                    <span class="stat-number" data-target="99">0</span>
-                    <span class="stat-label">Client Satisfaction (%)</span>
-                </div>
-                <div class="glass-card stat-card">
-                    <span class="stat-number" data-target="24">0</span>
-                    <span class="stat-label">System Security (7/365)</span>
-                </div>
-                <div class="glass-card stat-card">
-                    <span class="stat-number" data-target="100">0</span>
-                    <span class="stat-label">Mobile Optimization (%)</span>
-                </div>
+            <div class="glass-card stat-card">
+                <span class="stat-number" data-target="99">0</span>
+                <span class="stat-label">Client Satisfaction (%)</span>
+            </div>
+            <div class="glass-card stat-card">
+                <span class="stat-number" data-target="24">0</span>
+                <span class="stat-label">System Security (7/365)</span>
+            </div>
+            <div class="glass-card stat-card">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label">Mobile Optimization (%)</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Services Section -->
     <section class="services" id="services">
